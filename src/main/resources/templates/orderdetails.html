@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+</head>
+<body>
+    <ul th:each="i:${orders}">
+        <h3>Order Details</h3>
+        <li>Order ID:
+            <span th:text="${i.orderId}"></span>
+        </li>
+        <li>Order Date:
+            <span th:text="${i.orderDate}"></span>
+        </li>
+        <li>Customer Id:
+            <span th:text="${i.customerId}"></span>
+        </li>
+        <li>Items Bought
+            <ol >
+                <li th:each="p:${products}" th:text="${p}"></li>
+            </ol>
+        </li>
+        <li>
+            Total: $
+            <span th:text="${i.grandTotal}"></span>
+        </li>
+        <li>
+            Cost Price: $
+            <span th:text="${i.grandCostPrice}"></span>
+        </li>
+        <br>
+        <a th:href="@{/index.html}">Back</a>
+    </ul>
+</body>
+</html>
